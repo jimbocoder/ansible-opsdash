@@ -1,0 +1,30 @@
+---
+- name: Setup apt source
+  apt_repository:
+    repo: 'deb http://packages.rapidloop.com/debian stable main'
+    state: present
+
+- name: Setup apt key
+  apt_key:
+    keyserver: pgp.mit.edu
+    id: 1E1BACF5
+
+- name: Install server package
+  apt:
+    name: opsdash-server
+    update_cache: yes
+    state: present
+
+- name: Deploy configuration file
+  template:
+    src: server.cfg
+    dest: /etc/opsdash/server.cfg
+    owner: root
+    group: opsdash
+    mode: 0640
+
+- name: Ensure opsdash is started and enabled
+  service:
+    name: opsdash-serverd
+    state: started
+    enabled: yes

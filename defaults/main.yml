@@ -1,0 +1,13 @@
+---
+opsdash_ui_ip: "127.0.0.1"
+opsdash_ui_port: "8080"
+
+opsdash_udp_ip: "127.0.0.1"
+opsdash_udp_port: "6273"
+opsdash_tcp_ip: "127.0.0.1"
+opsdash_tcp_port: "6273"
+
+opsdash_smtp_url: "localhost:25"
+opsdash_smtp_username: "foo"
+opsdash_smtp_password: "bar"
+opsdash_smtp_from: "foo@example.org"
